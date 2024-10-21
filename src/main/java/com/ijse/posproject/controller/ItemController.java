@@ -14,11 +14,11 @@ import com.ijse.posproject.dto.ItemReqDto;
 import com.ijse.posproject.entity.Category;
 import com.ijse.posproject.entity.Item;
 import com.ijse.posproject.service.CategoryService;
-import com.ijse.posproject.service.ItemService;
+import com.ijse.posproject.service.ItemService;  
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 
 
 @RestController
@@ -59,7 +59,6 @@ public class ItemController {
 
     @PutMapping("items/{itemCode}")
     public ResponseEntity<?> updateItem(@PathVariable Long itemCode, @RequestBody ItemReqDto itemReqDto) {
-
         try {
             Item item = new Item();
             item.setItemName(itemReqDto.getItemName());
@@ -78,7 +77,6 @@ public class ItemController {
             return ResponseEntity.status(400).body(null);
 
         }
-
     }
 
     @DeleteMapping("items/{itemCode}")

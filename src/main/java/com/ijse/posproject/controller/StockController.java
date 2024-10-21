@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ijse.posproject.dto.StockReqDto;
@@ -19,13 +20,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
-
 
 @RestController
 @CrossOrigin(origins = "*")
+@EnableWebSecurity
 public class StockController {
 
     @Autowired
@@ -88,6 +86,12 @@ public class StockController {
     public ResponseEntity<?> getStockById(@PathVariable Long itemCode) {
         List<Stock> stocks = stockService.getStocksByItemCode(itemCode);
         return ResponseEntity.status(201).body(stocks);
+    }
+    
+    @GetMapping("/stocks/findbyid/{stockId}")
+    public ResponseEntity<?> getStockByStockId(@PathVariable Long stockId) {
+        Stock stock = stockService.getStockByStockId(stockId);
+        return ResponseEntity.status(201).body(stock);
     }
     
 

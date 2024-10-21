@@ -1,14 +1,12 @@
-package com.ijse.posproject.security;
+ package com.ijse.posproject.security;
 
 import java.security.Key;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import com.ijse.posproject.entity.User;
+import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -16,7 +14,7 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 
-@Configuration
+@Component
 public class JwtUtils {
     
     @Value("${app.secret}")
@@ -50,3 +48,4 @@ public class JwtUtils {
         return Jwts.parserBuilder().setSigningKey(key()).build().parseClaimsJws(token).getBody().getSubject();
     }
 }
+

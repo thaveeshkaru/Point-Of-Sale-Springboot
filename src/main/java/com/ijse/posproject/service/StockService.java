@@ -12,4 +12,5 @@ public interface StockService {
     Stock updateStock(Long stockId, Stock stock);
     void deleteStock(Long stockId);
     List<Stock> getStocksByItemCode(Long itemCode);
+    Stock getStockByStockId(Long stockId);
 }

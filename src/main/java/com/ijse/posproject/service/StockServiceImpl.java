@@ -49,4 +49,9 @@ public class StockServiceImpl implements StockService{
         return stockRepository.findByItem_ItemCode(itemCode);
     }
 
+    @Override
+    public Stock getStockByStockId(Long stockId) {
+        return stockRepository.findById(stockId).orElse(null);
+    }
+
 }
