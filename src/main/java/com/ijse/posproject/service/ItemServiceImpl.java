@@ -35,7 +35,7 @@ public class ItemServiceImpl implements ItemService {
             existingItem.setPrice(item.getPrice());
             existingItem.setCategory(item.getCategory());
             return itemRepository.save(existingItem);
-        }
+        } 
     }
 
     @Override
@@ -47,5 +47,6 @@ public class ItemServiceImpl implements ItemService {
     public Item getItemById(Long itemcode) {
         return itemRepository.findById(itemcode).orElse(null);
     }
+
 
 }

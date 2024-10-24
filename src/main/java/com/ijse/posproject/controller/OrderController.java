@@ -43,8 +43,8 @@ public ResponseEntity<?> createOrder(@RequestBody OrderReqDto orderReqDto){
         Item item = itemService.getItemById(itemCode);
 
         if(item != null){
-          orderedItems.add(item); // Add item to order
-          order.setTotalPrice(order.getTotalPrice() + item.getPrice()); // Calculate total price                      
+          orderedItems.add(item); 
+          order.setTotalPrice(order.getTotalPrice() + item.getPrice());                      
         }
     });
     order.setPaymentMethod(orderReqDto.getPaymentMethod());
